@@ -93,7 +93,8 @@ function ProfilePageClient({
     <div className="max-w-3xl mx-auto">
       <div className="grid grid-cols-1 gap-6">
         <div className="w-full max-w-lg mx-auto">
-          <Card className="bg-card">
+          {/* Card'ı Light ve Dark modda farklı renklerle ayarladık */}
+          <Card className="bg-gradient-to-r from-gray-100 to-sky-300 dark:from-gray-900 dark:to-sky-800 rounded-xl shadow-md">
             <CardContent className="pt-6">
               <div className="flex flex-col items-center text-center">
                 <Avatar className="w-24 h-24">
@@ -123,7 +124,7 @@ function ProfilePageClient({
                   </div>
                 </div>
 
-                {/* Takip Et & Profili Düzenleme Butonları "*/}
+                {/* Takip Et & Profili Düzenleme Butonları */}
                 {!currentUser ? (
                   <SignInButton mode="modal">
                     <Button className="w-full mt-4">Follow</Button>
@@ -156,9 +157,7 @@ function ProfilePageClient({
                     <div className="flex items-center text-muted-foreground">
                       <LinkIcon className="size-4 mr-2" />
                       <a
-                        href={
-                          user.website.startsWith("http") ? user.website : `https://${user.website}`
-                        }
+                        href={user.website.startsWith("http") ? user.website : `https://${user.website}`}
                         className="hover:underline"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -274,4 +273,5 @@ function ProfilePageClient({
     </div>
   );
 }
+
 export default ProfilePageClient;

@@ -97,3 +97,113 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Patlama animasyonu ve stil ayarları */
+@keyframes explosion {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* Patlama partiküllerinin yayılacağı alan */
+@keyframes particles {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+
+/* Buton üzerine gelindiğinde sadece FollowButton'un büyümesini sağlıyoruz */
+button.follow-button:hover {
+  transform: scale(1.2); /* Büyüme efekti */
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Patlama animasyonu ve stil ayarları */
+@keyframes explosion {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* Patlama partiküllerinin yayılacağı alan */
+@keyframes particles {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+
+/* Buton içerisindeki patlama partikülleri */
+.particle-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  animation: particles 1s ease-out forwards;
+  pointer-events: none;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+}
+
+/* Patlama partiküllerinin rastgele yayılması için x ve y koordinatlarını belirliyoruz */
+.particle-effect:nth-child(1) {
+  --x: 50px;
+  --y: -50px;
+}
+
+.particle-effect:nth-child(2) {
+  --x: -70px;
+  --y: 80px;
+}
+
+.particle-effect:nth-child(3) {
+  --x: 90px;
+  --y: 100px;
+}
+
+.particle-effect:nth-child(4) {
+  --x: -30px;
+  --y: -90px;
+}
+
+.particle-effect:nth-child(5) {
+  --x: -50px;
+  --y: 60px;
+}
+
+/* Butonun içinde patlama efekti olduğu zaman kırmızıya dönüşmesini sağlıyoruz */
+button.bg-red-500 {
+  background-color: rgba(172, 22, 22, 0.726) !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
