@@ -2,6 +2,7 @@
 
 import prisma from "@/lib/prisma";
 import { getDbUserId } from "./user.action";
+import { revalidateTag } from "next/cache";
 
 export async function getNotifications() {
   try {
@@ -40,6 +41,8 @@ export async function getNotifications() {
         createdAt: "desc",
       },
     });
+
+    revalidateTag("notifications");
 
     return notifications;
   } catch (error) {
